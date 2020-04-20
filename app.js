@@ -40,17 +40,16 @@ app.get('/', (req, res) => {
     })
     .then(customer => stripe.charges.create({
       amount,
-      description: 'Web Development Ebook',
-      currency: 'usd',
+      description: 'Awesome Men Glasses',
+      currency: 'INR',
       customer: customer.id
     }))
     .then(charge => res.render('success'));
-    // console.log(req.body);
-    // res.send("TEST");
+
   });
   
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);

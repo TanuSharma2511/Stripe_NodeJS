@@ -1,28 +1,125 @@
+<style>
+  .card1{
+     position:absolute;
+        top:50%;
+        left:85%;
+        transform:translate(-50%,-50%);
+  }
+   .card{
+        width:360px;
+        background: #f1f1f1;
+       
+    }
+    .top-section{
+        height:310px;
+        overflow: hidden;
+        background: #fff;
+        position: relative;
+    }
+    #image-container{
+        width:360px;
+        height:240px;
+    }
+    .navs{
+        text-align:center;
+    }
+    .navs img{
+        width:80px;
+        height:50px;
+        border:2px solid #ddd;
+        margin:8px 2px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+    .navs img:hover{
+        border-color: #6ab04c;
+    }
+    .price{
+        position: absolute;
+        top:20px;
+        right:20px;
+        color:#6ab04c;
+        font-size: 24px;
+    }
+    .product-info{
+        padding:24px;
+    }
+    .name{
+        text-transform: uppercase;
+        font-size: 24px;
+        color:#333;
+    }
+    .dis{
+      color:#333;
+        font-size:16px;
+        opacity: 0.7;
+    }
+    .btn{
+        display:block;
+        background:#6ab04c;
+        color:#fff;
+        text-align: center;
+        padding:10px;
+        margin-top:10px;
+        transition:0.3s;
+    }
+    .btn:hover{
+        background:#333;
+    }
+    .btn1{
+      margin-left:150px;
+    }
+    .btn2:hover{
+       color:white;
+    }
+</style>
 <section class="py-2">
   <div class="row">
     <div class="col-md-6 text-center">
       <h1 class="display-3 mt-3 pt-5">
-        Web Development Ebook
-      </h1><p class="lead">learn web development front to back</p>
+        Awesome Men Sunglasses
+      </h1><p class="lead">view men sunglasses front to back</p>
       <form action="/charge" method="POST">
         <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="{{stripePublishableKey}}"
           data-amount="2500"
-          data-name="Web Development Ebook"
-          data-description="Ebook written by Brad Traversy"
-          data-image="/img/marketplace.png"
+          data-name="Awesome Men Sunglass"
+          data-description="Famous Sunglasses by Raven"
+          data-image="/img/google4.jpg"
           data-locale="auto">
         </script>
         <script>
           // Hide default stripe button
           document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
         </script>
-        <button type="submit" class="btn btn-outline-dark text-white btn-lg">Purchase For $25</button>
+        <button type="submit" class="btn btn-outline-dark text-white btn-lg btn1">Purchase For $25</button>
       </form>
     </div>
-    <div class="col-md-6">
-      <img src="/img/book.png" alt="" class="img-fluid">
+    <div class="col-md-6 card1">
+      <div class="card">
+        <div class="top-section">
+            <img id="image-container" src="/img/goggle4.jpg" alt="">
+            <div class="navs">
+                <img onclick="change_img(this)" src="/img/goggle4.jpg" alt="">
+                <img onclick="change_img(this)"src="/img/goggle1.jpg" alt="">
+                <img onclick="change_img(this)" src="/img/google3.jpg" alt="">
+                
+            </div>
+           <div class="price">$25</div>
+        </div>
+        <div class="product-info">
+            <div class="name">Sunglasses</div>
+            <div class="dis">Awesome Men Sunglasses</div>
+            <a class="btn btn2" href="#">Awesome Men Sunglasses</a>
+        </div>
+    </div>
     </div>
   </div>
 </section>
+<script>
+    var container = document.getElementById("image-container");
+    function change_img(image){
+        container.src=image.src;
+    }
+    </script>
